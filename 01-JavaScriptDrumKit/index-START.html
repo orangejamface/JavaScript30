@@ -63,13 +63,38 @@
 function playSound(e) {
   const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+  // const kick = document.querySelector(`.kickKey[data-key="${e.keyCode}"]`)
   // console.log(sound);
   if (!sound) return; //stop the function if no audio 
   sound.currentTime = 0; // enable multiple play of each key
   sound.play();
-  // console.log(key);
-  key.classList.add('playing');
+  
+  if (e.keyCode == "65" ) key.classList.add('playing'); //clap style change
+  if (e.keyCode == "83" ) key.classList.add('playing'); //hihat style change
+  if (e.keyCode == "68" ) key.classList.add('playing'); //kick style change
+  if (e.keyCode == "70" ) key.classList.add('playing'); //openhat style change
+  if (e.keyCode == "71" ) key.classList.add('playing'); //boom style change
+  if (e.keyCode == "72" ) key.classList.add('playing'); //ride style change
+  if (e.keyCode == "74" ) key.classList.add('playing'); //snare style change
+  if (e.keyCode == "75" ) key.classList.add('playing'); //tom style change
+  if (e.keyCode == "76" ) key.classList.add('playing'); //tink style change
+
+
 };
+
+// function playKick(e) {
+//   const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+//   const kickSound = document.querySelector(`.kickKey[data-key="${e.keyCode}"]`)
+//   console.log(sound);
+//   if (!sound) return; //stop the function if no audio 
+//   sound.currentTime = 0; // enable multiple play of each key
+//   sound.play();
+//   console.log(kickSound);
+//   kickSound.classList.add('playing');
+// };
+
+
+
 
 function removeTransition(e) {
   if (e.propertyName !== 'transform') {
@@ -79,8 +104,14 @@ function removeTransition(e) {
 }
 
 const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+// const kick = document.querySelector('.kickKey');
+
 window.addEventListener('keydown', playSound); 
+// window.addEventListener('keydown', playKick);
+
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+// kick.forEach(key => key.addEventListener('transitionend', removeTransition));
+
 
 </script>
 
