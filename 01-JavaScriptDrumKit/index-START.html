@@ -69,29 +69,19 @@ function playSound(e) {
   sound.currentTime = 0; // enable multiple play of each key
   sound.play();
   
-  if (e.keyCode == "65" ) key.classList.add('playing'); //clap style change
-  if (e.keyCode == "83" ) key.classList.add('playing'); //hihat style change
-  if (e.keyCode == "68" ) key.classList.add('playing'); //kick style change
-  if (e.keyCode == "70" ) key.classList.add('playing'); //openhat style change
-  if (e.keyCode == "71" ) key.classList.add('playing'); //boom style change
-  if (e.keyCode == "72" ) key.classList.add('playing'); //ride style change
-  if (e.keyCode == "74" ) key.classList.add('playing'); //snare style change
-  if (e.keyCode == "75" ) key.classList.add('playing'); //tom style change
-  if (e.keyCode == "76" ) key.classList.add('playing'); //tink style change
+  if (e.keyCode == "65" ) key.classList.add('playingClap'); //clap style change
+  if (e.keyCode == "83" ) key.classList.add('playingHat'); //hihat style change
+  if (e.keyCode == "68" ) key.classList.add('playingKick'); //kick style change
+  if (e.keyCode == "70" ) key.classList.add('playingOpenHat'); //openhat style change
+  if (e.keyCode == "71" ) key.classList.add('playingBoom'); //boom style change
+  if (e.keyCode == "72" ) key.classList.add('playingRide'); //ride style change
+  if (e.keyCode == "74" ) key.classList.add('playingSnare'); //snare style change
+  if (e.keyCode == "75" ) key.classList.add('playingTom'); //tom style change
+  if (e.keyCode == "76" ) key.classList.add('playingTink'); //tink style change
 
 
 };
 
-// function playKick(e) {
-//   const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-//   const kickSound = document.querySelector(`.kickKey[data-key="${e.keyCode}"]`)
-//   console.log(sound);
-//   if (!sound) return; //stop the function if no audio 
-//   sound.currentTime = 0; // enable multiple play of each key
-//   sound.play();
-//   console.log(kickSound);
-//   kickSound.classList.add('playing');
-// };
 
 
 
@@ -100,7 +90,8 @@ function removeTransition(e) {
   if (e.propertyName !== 'transform') {
     return;}
   console.log(e.propertyName);
-  this.classList.remove('playing');
+  this.classList.remove('playingClap', 'playingHat', 'playingKick', 'playingOpenHat',
+   'playingBoom', 'playingRide', 'playingSnare', 'playingTom', 'playingTink' );
 }
 
 const keys = document.querySelectorAll('.key');
