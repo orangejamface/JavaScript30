@@ -34,7 +34,13 @@ body,html {
 
 .playing {
   transform: scale(1.1);
-  border-color: #ffc600;
+  border-color: #ff0000;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+.kick {
+  transform: scale(1.1);
+  border-color: #ff0000;
   box-shadow: 0 0 1rem #ffc600;
 }
 
