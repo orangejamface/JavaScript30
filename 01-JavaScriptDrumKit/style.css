@@ -1,6 +1,6 @@
 html {
-  font-size: 10px;
-  background: url('./background.jpg') bottom center;
+  font-size: 8px;
+  background: url('./img/drumkit.jpg') bottom center;
   background-size: cover;
 }
 
@@ -10,12 +10,60 @@ body,html {
   font-family: sans-serif;
 }
 
-.keys {
+.kit {
+margin: 80px;
+margin-bottom: 0;
+min-height: 80vh;
+}
+
+
+.tinkClap {
+  
   display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
   justify-content: center;
+  margin-bottom: 40px;
+}
+
+.cymbals {
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* flex: 1; */
+  /* min-height: 80vh; */
+  /* max-width: 565px; */
+  align-items: center;
+  justify-content: space-evenly;
+  /* overflow: auto; */
+  margin-bottom: 60px;
+}
+
+.hatRim {
+  
+    display: flex;
+    /* justify-content: space-evenly; */
+    margin-bottom: 40px;
+}
+
+.kickBoom  {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.clapSnareTom {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  /* margin-left: 0; */
+  /* margin-bottom: 40px; */
+}
+.clapSnare {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.floorTom {
+  display: flex;
+  justify-content: space-around;
 }
 
 .key {
@@ -33,6 +81,11 @@ body,html {
 }
 
 .playingClap {
+  transform: scale(1.1);
+  border-color: #ffffff;
+  box-shadow: 0 0 1rem #ffc600;
+}
+.playingRim {
   transform: scale(1.1);
   border-color: #ffffff;
   box-shadow: 0 0 1rem #ffc600;
@@ -66,6 +119,13 @@ body,html {
   transform: scale(1.2);
   border-color: #ffc400;
   box-shadow: 0 0 1rem #ffc600;
+}
+
+.playingCrash {
+  transform: scale(1.4);
+  border-color: #ffc400;
+  box-shadow: 0 0 1rem #ffc600;
+  transition: all 0.14s ease;
 }
 
 .playingSnare {

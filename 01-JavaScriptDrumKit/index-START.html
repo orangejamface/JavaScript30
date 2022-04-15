@@ -7,104 +7,99 @@
 </head>
 <body>
 
+<div class="kit">
 
-  <div class="keys">
+  <div class="tinkClap">
+
+  <div data-key="73" class="key">
+    <kbd>I</kbd>
+    <span class="sound">tink</span>
+  </div>
+
+  </div>
+
+  <div class="cymbals">
+
+    <div data-key="84" class="key">
+      <kbd>T</kbd>
+      <span class="sound">Crash</span>
+    </div>
+
+    <div data-key="89" class="key">
+      <kbd>Y</kbd>
+      <span class="sound">Tom</span>
+    </div>
+
+    <div data-key="85" class="key">
+      <kbd>U</kbd>
+      <span class="sound">ride</span>
+    </div>
+
+  </div>
+
+  <div class="hatRim">
+    <div data-key="81" class="key">
+      <kbd>Q</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="87" class="key">
+      <kbd>W</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="69" class="key">
+      <kbd>E</kbd>
+      <span class="sound">rimshot</span>
+    </div>
+  </div>
+
+<digv class="clapSnareTom">
+  <div class="clapSnare">
     <div data-key="65" class="key">
       <kbd>A</kbd>
       <span class="sound">clap</span>
     </div>
-    <div data-key="83" class="key">
-      <kbd>S</kbd>
-      <span class="sound">hihat</span>
-    </div>
     <div data-key="68" class="key">
       <kbd>D</kbd>
-      <span class="sound">kick</span>
-    </div>
-    <div data-key="70" class="key">
-      <kbd>F</kbd>
-      <span class="sound">openhat</span>
-    </div>
-    <div data-key="71" class="key">
-      <kbd>G</kbd>
-      <span class="sound">boom</span>
-    </div>
-    <div data-key="72" class="key">
-      <kbd>H</kbd>
-      <span class="sound">ride</span>
-    </div>
-    <div data-key="74" class="key">
-      <kbd>J</kbd>
       <span class="sound">snare</span>
     </div>
+  </div>
+  <div class="floorTom">
     <div data-key="75" class="key">
       <kbd>K</kbd>
-      <span class="sound">tom</span>
+      <span class="sound">floor-tom</span>
     </div>
-    <div data-key="76" class="key">
-      <kbd>L</kbd>
-      <span class="sound">tink</span>
+  </div>
+</div>
+
+  <div class="kickBoom">
+    <div data-key="67" class="key">
+      <kbd>C</kbd>
+      <span class="sound">kick</span>
+    </div>
+
+    <div data-key="66" class="key">
+      <kbd>B</kbd>
+      <span class="sound">boom</span>
     </div>
   </div>
 
+</div>
+
   <audio data-key="65" src="sounds/clap.wav"></audio>
-  <audio data-key="83" src="sounds/hihat.wav"></audio>
-  <audio data-key="68" src="sounds/kick.wav"></audio>
-  <audio data-key="70" src="sounds/openhat.wav"></audio>
-  <audio data-key="71" src="sounds/boom.wav"></audio>
-  <audio data-key="72" src="sounds/ride.wav"></audio>
-  <audio data-key="74" src="sounds/snare.wav"></audio>
-  <audio data-key="75" src="sounds/tom.wav"></audio>
-  <audio data-key="76" src="sounds/tink.wav"></audio>
+  <audio data-key="87" src="sounds/hihat.wav"></audio>
+  <audio data-key="67" src="sounds/kick.wav"></audio>
+  <audio data-key="81" src="sounds/openhat.wav"></audio>
+  <audio data-key="66" src="sounds/boom.wav"></audio>
+  <audio data-key="85" src="sounds/ride.wav"></audio>
+  <audio data-key="68" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/floortom.mp3"></audio>
+  <audio data-key="73" src="sounds/tink.wav"></audio>
+  <audio data-key="69" src="sounds/rimshot.mp3"></audio>
+  <audio data-key="84" src="sounds/crash.wav"></audio>
+  <audio data-key="89" src="sounds/tom.mp3"></audio>
 
-<script>
+<script src="java.js"></script>
 
-
-function playSound(e) {
-  const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
-  // const kick = document.querySelector(`.kickKey[data-key="${e.keyCode}"]`)
-  // console.log(sound);
-  if (!sound) return; //stop the function if no audio 
-  sound.currentTime = 0; // enable multiple play of each key
-  sound.play();
-  
-  if (e.keyCode == "65" ) key.classList.add('playingClap'); //clap style change
-  if (e.keyCode == "83" ) key.classList.add('playingHat'); //hihat style change
-  if (e.keyCode == "68" ) key.classList.add('playingKick'); //kick style change
-  if (e.keyCode == "70" ) key.classList.add('playingOpenHat'); //openhat style change
-  if (e.keyCode == "71" ) key.classList.add('playingBoom'); //boom style change
-  if (e.keyCode == "72" ) key.classList.add('playingRide'); //ride style change
-  if (e.keyCode == "74" ) key.classList.add('playingSnare'); //snare style change
-  if (e.keyCode == "75" ) key.classList.add('playingTom'); //tom style change
-  if (e.keyCode == "76" ) key.classList.add('playingTink'); //tink style change
-
-
-};
-
-
-
-
-
-function removeTransition(e) {
-  if (e.propertyName !== 'transform') {
-    return;}
-  console.log(e.propertyName);
-  this.classList.remove('playingClap', 'playingHat', 'playingKick', 'playingOpenHat',
-   'playingBoom', 'playingRide', 'playingSnare', 'playingTom', 'playingTink' );
-}
-
-const keys = document.querySelectorAll('.key');
-// const kick = document.querySelector('.kickKey');
-
-window.addEventListener('keydown', playSound); 
-// window.addEventListener('keydown', playKick);
-
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-// kick.forEach(key => key.addEventListener('transitionend', removeTransition));
-
-
-</script>
 
 
 </body>
